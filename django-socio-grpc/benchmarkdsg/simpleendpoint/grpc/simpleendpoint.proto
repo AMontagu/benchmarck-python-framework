@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package benchmarkdsg.simpleendpoint;
+
+import "google/protobuf/empty.proto";
+
+service SimpleServiceController {
+    rpc GetChar(google.protobuf.Empty) returns (SimpleServiceGetCharResponse) {}
+}
+
+message SimpleServiceGetCharResponse {
+    string char = 1;
+}
+

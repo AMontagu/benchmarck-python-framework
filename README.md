@@ -11,6 +11,7 @@ Each framework should implement:
 - An API endpoint that return a file of 2MB
 - An API endpoint that return a file of 10MB
 
+-------------------- 
 
 Model à utiliser pour la récupération db:
 
@@ -19,5 +20,11 @@ class Post(models.Model):
     headline = models.CharField(max_length=200)
     content = models.TextField()
 
+The write statement should create elements like:
+pub_date = datetime.now()
+headline = "Test Perf"
+content = "This is the content of the publication"
+
+-----------
 
 Les fichiers à utiliser sont situé à la racine du projet

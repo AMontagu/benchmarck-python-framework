@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package benchmarkdsg.dbendpoint;
+
+import "google/protobuf/empty.proto";
+
+service PostController {
+    rpc Create(PostRequest) returns (PostResponse) {}
+    rpc Destroy(PostDestroyRequest) returns (google.protobuf.Empty) {}
+    rpc List(PostListRequest) returns (PostListResponse) {}
+    rpc PartialUpdate(PostPartialUpdateRequest) returns (PostResponse) {}
+    rpc Retrieve(PostRetrieveRequest) returns (PostResponse) {}
+    rpc Update(PostRequest) returns (PostResponse) {}
+}
+
+message PostDestroyRequest {
+    int32 id = 1;
+}
+
+message PostListRequest {
+}
+
+message PostListResponse {
+    repeated PostResponse results = 1;
+}
+
+message PostPartialUpdateRequest {
+    optional int32 id = 1;
+    repeated string _partial_update_fields = 2;
+    string pub_date = 3;
+    string headline = 4;
+    string content = 5;
+}
+
+message PostRequest {
+    optional int32 id = 1;
+    string pub_date = 2;
+    string headline = 3;
+    string content = 4;
+}
+
+message PostResponse {
+    optional int32 id = 1;
+    string pub_date = 2;
+    string headline = 3;
+    string content = 4;
+}
+
+message PostRetrieveRequest {
+    int32 id = 1;
+}
+

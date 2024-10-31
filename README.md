@@ -10,3 +10,11 @@ Each framework should implement:
 - An API endpoint that retrieve data from a sqlite database
 - An API endpoint that return a file of 2MB
 - An API endpoint that return a file of 10MB
+
+
+Model à utiliser pour la récupération db:
+
+class Post(models.Model):
+    pub_date = models.DateField()
+    headline = models.CharField(max_length=200)
+    content = models.TextField()

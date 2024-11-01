@@ -1,0 +1,6 @@
+proxy:
+  endpoints:
+    - name: benchmark
+      controller: harp_benchmark.controllers.BenchmarkController
+      port: 4000
+      url: https://perdu.com/

@@ -3,7 +3,7 @@ import grpc
 from datetime import datetime
 from simpleendpoint.grpc.simpleendpoint_pb2_grpc import SimpleServiceControllerStub
 from dbendpoint.grpc.dbendpoint_pb2_grpc import PostControllerStub
-from dbendpoint.grpc.dbendpoint_pb2 import PostRequest, PostDestroyRequest
+from dbendpoint.grpc.dbendpoint_pb2 import PostRequest, PostDestroyRequest, PostRetrieveRequest
 from google.protobuf.empty_pb2 import Empty
 from time import perf_counter
 
@@ -24,16 +24,19 @@ async def main():
 
         
         # ##################### DB CREATION TEST
-        # db_endpoint_client = PostControllerStub(channel)
+        db_endpoint_client = PostControllerStub(channel)
 
-        # element_pks = []
-        # for i in range(10):
-        #     request = PostRequest(pub_date=datetime.now().strftime("%Y-%m-%d"), headline="Test Perf", content="This is the content of the publication")
-        #     create_response = await db_endpoint_client.Create(request)
-        #     element_pks.append(create_response.id)
+        element_pks = []
+        for i in range(10):
+            request = PostRequest(pub_date=datetime.now().strftime("%Y-%m-%d"), headline="Test Perf", content="This is the content of the publication")
+            create_response = await db_endpoint_client.Create(request)
+            element_pks.append(create_response.id)
 
         # ##################### DB Retrieve TEST
-
+        for i in range(10):
+            request = PostRetrieveRequest(id=element_pks[0])
+            r = await db_endpoint_client.Retrieve(request)
+            print(r)
 
         
         # # Clean up. No need to mesure

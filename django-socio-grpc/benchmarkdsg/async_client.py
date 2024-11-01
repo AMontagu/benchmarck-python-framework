@@ -23,8 +23,8 @@ async def main():
 
         element_pks = []
         for i in range(10):
-            request = PostRequest(pub_date=datetime.now().strftime("%Y-%m-%d HH:MM:ss"), headline="Test Perf", content="This is the content of the publication")
-            create_response = db_endpoint_client.Create(request)
+            request = PostRequest(pub_date=datetime.now().strftime("%Y-%m-%d"), headline="Test Perf", content="This is the content of the publication")
+            create_response = await db_endpoint_client.Create(request)
             element_pks.append(create_response.id)
 
         ##################### DB Retrieve TEST
@@ -34,7 +34,7 @@ async def main():
         # Clean up. No need to mesure
         for element_pk in element_pks:
             request = PostDestroyRequest(id=element_pk)
-            db_endpoint_client.delete(request)
+            await db_endpoint_client.Destroy(request)
         
 
 

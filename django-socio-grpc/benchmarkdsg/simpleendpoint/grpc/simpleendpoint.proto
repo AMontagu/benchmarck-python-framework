@@ -3,12 +3,43 @@ syntax = "proto3";
 package benchmarkdsg.simpleendpoint;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
 
 service SimpleServiceController {
+    rpc GetBiggerFileAsBytes(google.protobuf.Empty) returns (SimpleServiceGetBiggerFileAsBytesResponse) {}
+    rpc GetBiggerFileAsString(google.protobuf.Empty) returns (SimpleServiceGetBiggerFileAsStringResponse) {}
+    rpc GetBiggerFileAsStruct(google.protobuf.Empty) returns (SimpleServiceGetBiggerFileAsStructResponse) {}
     rpc GetChar(google.protobuf.Empty) returns (SimpleServiceGetCharResponse) {}
+    rpc GetSmallerFileAsBytes(google.protobuf.Empty) returns (SimpleServiceGetSmallerFileAsBytesResponse) {}
+    rpc GetSmallerFileAsString(google.protobuf.Empty) returns (SimpleServiceGetSmallerFileAsStringResponse) {}
+    rpc GetSmallerFileAsStruct(google.protobuf.Empty) returns (SimpleServiceGetSmallerFileAsStructResponse) {}
+}
+
+message SimpleServiceGetBiggerFileAsBytesResponse {
+    bytes file_bytes = 1;
+}
+
+message SimpleServiceGetBiggerFileAsStringResponse {
+    string file_string = 1;
+}
+
+message SimpleServiceGetBiggerFileAsStructResponse {
+    google.protobuf.Struct file_struct = 1;
 }
 
 message SimpleServiceGetCharResponse {
     string char = 1;
+}
+
+message SimpleServiceGetSmallerFileAsBytesResponse {
+    bytes file_bytes = 1;
+}
+
+message SimpleServiceGetSmallerFileAsStringResponse {
+    string file_string = 1;
+}
+
+message SimpleServiceGetSmallerFileAsStructResponse {
+    google.protobuf.Struct file_struct = 1;
 }
 

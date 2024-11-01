@@ -127,4 +127,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 GRPC_FRAMEWORK = {
     "ROOT_HANDLERS_HOOK" : 'benchmarkdsg.handlers.grpc_handlers',
+    "SERVER_OPTIONS": [
+        ("grpc.max_send_message_length", 1800 * 1024 * 1024),
+        ("grpc.max_receive_message_length", 1800 * 1024 * 1024),
+    ],
 }

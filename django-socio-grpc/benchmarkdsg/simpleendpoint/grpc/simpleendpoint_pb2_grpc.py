@@ -35,17 +35,83 @@ class SimpleServiceControllerStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.GetBiggerFileAsBytes = channel.unary_unary(
+                '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetBiggerFileAsBytes',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsBytesResponse.FromString,
+                _registered_method=True)
+        self.GetBiggerFileAsString = channel.unary_unary(
+                '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetBiggerFileAsString',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsStringResponse.FromString,
+                _registered_method=True)
+        self.GetBiggerFileAsStruct = channel.unary_unary(
+                '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetBiggerFileAsStruct',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsStructResponse.FromString,
+                _registered_method=True)
         self.GetChar = channel.unary_unary(
                 '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetChar',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetCharResponse.FromString,
+                _registered_method=True)
+        self.GetSmallerFileAsBytes = channel.unary_unary(
+                '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetSmallerFileAsBytes',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsBytesResponse.FromString,
+                _registered_method=True)
+        self.GetSmallerFileAsString = channel.unary_unary(
+                '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetSmallerFileAsString',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsStringResponse.FromString,
+                _registered_method=True)
+        self.GetSmallerFileAsStruct = channel.unary_unary(
+                '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetSmallerFileAsStruct',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsStructResponse.FromString,
                 _registered_method=True)
 
 
 class SimpleServiceControllerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
+    def GetBiggerFileAsBytes(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetBiggerFileAsString(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetBiggerFileAsStruct(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetChar(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSmallerFileAsBytes(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSmallerFileAsString(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSmallerFileAsStruct(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -54,10 +120,40 @@ class SimpleServiceControllerServicer(object):
 
 def add_SimpleServiceControllerServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'GetBiggerFileAsBytes': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBiggerFileAsBytes,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsBytesResponse.SerializeToString,
+            ),
+            'GetBiggerFileAsString': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBiggerFileAsString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsStringResponse.SerializeToString,
+            ),
+            'GetBiggerFileAsStruct': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBiggerFileAsStruct,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsStructResponse.SerializeToString,
+            ),
             'GetChar': grpc.unary_unary_rpc_method_handler(
                     servicer.GetChar,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetCharResponse.SerializeToString,
+            ),
+            'GetSmallerFileAsBytes': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSmallerFileAsBytes,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsBytesResponse.SerializeToString,
+            ),
+            'GetSmallerFileAsString': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSmallerFileAsString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsStringResponse.SerializeToString,
+            ),
+            'GetSmallerFileAsStruct': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSmallerFileAsStruct,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsStructResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -69,6 +165,87 @@ def add_SimpleServiceControllerServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class SimpleServiceController(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetBiggerFileAsBytes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetBiggerFileAsBytes',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsBytesResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetBiggerFileAsString(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetBiggerFileAsString',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsStringResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetBiggerFileAsStruct(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetBiggerFileAsStruct',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetBiggerFileAsStructResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def GetChar(request,
@@ -87,6 +264,87 @@ class SimpleServiceController(object):
             '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetChar',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetCharResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetSmallerFileAsBytes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetSmallerFileAsBytes',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsBytesResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetSmallerFileAsString(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetSmallerFileAsString',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsStringResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetSmallerFileAsStruct(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/benchmarkdsg.simpleendpoint.SimpleServiceController/GetSmallerFileAsStruct',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            simpleendpoint_dot_grpc_dot_simpleendpoint__pb2.SimpleServiceGetSmallerFileAsStructResponse.FromString,
             options,
             channel_credentials,
             insecure,

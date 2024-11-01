@@ -1,5 +1,6 @@
 import uvicorn
 import sqlite3
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import Response, FileResponse
@@ -13,8 +14,8 @@ app = FastAPI()
 DB_NAME = 'fastApiPost.db'
 TABLE_NAME = 'Post'
 
-file_path_2mb = './data/generated_file_2MB.json'
-file_path_10mb = './data/generated_file_10MB.json'
+file_path_2mb = Path('./data/generated_file_2MB.json')
+file_path_10mb = Path('./data/generated_file_10MB.json')
 
 
 
@@ -53,7 +54,7 @@ def fetch_data(db_name: str, table_name: str)-> None :
   cur = con.cursor()
   res = cur.execute(f"""
     SELECT * FROM {table_name}""")
-  data = res.fetchall()
+  data = res.fetchone()
   con.close()
   return data
 

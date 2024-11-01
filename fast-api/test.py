@@ -5,7 +5,7 @@ from time import perf_counter
 def test_simple_api(n):
   start_time = perf_counter()
   for x in range(n):
-    r = requests.get('http://127.0.0.1:5000/simple-api')
+    r = requests.get('http://127.0.0.1:8080/simple-api')
   print(f'----- get char {perf_counter() - start_time} seconds ----')
 
 def test_stock_data(n):
@@ -13,26 +13,26 @@ def test_stock_data(n):
   payload = {'pub_date': '2024-11-01 10:00:00', \
     'headline': 'test', 'content': f'{n}'}
   for x in range(n):
-    r = requests.post('http://127.0.0.1:5000/stock_data', params=payload)
+    r = requests.post('http://127.0.0.1:8080/stock_data', params=payload)
   print(f'----- stock data {perf_counter() - start_time} seconds ----')
 
 def test_get_data(n):
   start_time = perf_counter()
   for x in range(n):
-    r = requests.get('http://127.0.0.1:5000/fetch_data')
+    r = requests.get('http://127.0.0.1:8080/fetch_data')
   print(f'----- get data {perf_counter() - start_time} seconds ----')
 
 
 def test_return_2mb(n):
   start_time = perf_counter()
   for x in range(n):
-    r = requests.get('http://127.0.0.1:5000/return_2mb')
+    r = requests.get('http://127.0.0.1:8080/return_2mb')
   print(f'----- test little file{perf_counter() - start_time} seconds ----')
 
 def test_return_10mb(n):
   start_time = perf_counter()
   for x in range(n):
-    r = requests.get('http://127.0.0.1:5000/return_10mb')
+    r = requests.get('http://127.0.0.1:8080/return_10mb')
   print(f'-----test BIG fille{perf_counter() - start_time} seconds ----')
 
 

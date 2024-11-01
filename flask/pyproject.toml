@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "harp_benchmark"
+name = "flask-benchmark"
 version = "0.1.0"
 description = ""
-authors = ["Romain Dorgueil <romain@makersquad.fr>"]
-readme = "README.rst"
+authors = ["Adrien Montagu <adrienmontagu@gmail.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
-harp-proxy = "^0.7.4"
+python = "^3.11"
+flask = "^3.0.3"
 requests = "^2.32.3"
 
 

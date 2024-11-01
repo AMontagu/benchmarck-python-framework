@@ -87,4 +87,4 @@ async def return_10mb():
 if __name__ == "__main__":
     create_db()
     create_table(DB_NAME)
-    uvicorn.run("app:app", host="127.0.0.1", port=5000, log_level="info")
+    uvicorn.run("app:app", host="0.0.0.0", port=8080, log_level="info")

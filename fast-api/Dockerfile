@@ -10,6 +10,6 @@ WORKDIR   /app
 
 RUN poetry install
 
-
-RUN poetry run python app.py
+EXPOSE 8080
+CMD poetry run python app.py
 

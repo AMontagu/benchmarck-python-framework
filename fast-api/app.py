@@ -19,7 +19,7 @@ file_path_10mb = './data/generated_file_10MB.json'
 
 
 sql_statements = f"""CREATE TABLE IF NOT EXISTS {TABLE_NAME} (
-            pub_date TEXT,
+            pub_date DATE,
             headline VARCHAR(200),
             content TEXT );"""
 
